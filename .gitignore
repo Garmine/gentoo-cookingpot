@@ -1,0 +1,9 @@
+initrd-new
+initrd-ori
+iso
+iso-new
+iso-ori
+sqfs-new
+sqfs-ori
+*.iso
+*.swp
