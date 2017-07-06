@@ -20,7 +20,7 @@ renice -n 19 $$
 echo
 echo "-------------------------------------------------------------------------------"
 echo "Making squashfs..."
-rm iso-new/image.squashfs
+rm -f iso-new/image.squashfs
 mksquashfs sqfs-new/ iso-new/image.squashfs
 
 
@@ -28,7 +28,7 @@ mksquashfs sqfs-new/ iso-new/image.squashfs
 echo
 echo "-------------------------------------------------------------------------------"
 echo "Making initrd..."
-rm iso-new/isolinux/gentoo.igz
+rm -f iso-new/isolinux/gentoo.igz
 ( 
 	cd initrd-new
 	find . \
@@ -42,6 +42,7 @@ rm iso-new/isolinux/gentoo.igz
 echo
 echo "-------------------------------------------------------------------------------"
 echo "Making ISO image..."
+rm -f .wip.iso
 (
 	cd iso-new
 	xorriso -as mkisofs \
@@ -50,9 +51,9 @@ echo "Making ISO image..."
 		-c isolinux/boot.cat \
 		-iso-level 3 -no-emul-boot -partition_offset 16 -boot-load-size 4 -boot-info-table \
 		-isohybrid-mbr /usr/lib/syslinux/bios/isohdpfx.bin \
-		-o ../wip.iso .
+		-o ../.wip.iso .
 )
-mv wip.iso $1
+mv .wip.iso $1
 
 
 
