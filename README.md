@@ -50,6 +50,8 @@ burning. Please note that the generated intermediate files (`gentoo.igz`,
 - Delete intermediate files by default
 - Option to not delete intermediate files
 - Option to only generate part of the iso
+- config.sh
+- number of threads to use (for de/compresssion and etc.)
 
 ## Inspiration
 
